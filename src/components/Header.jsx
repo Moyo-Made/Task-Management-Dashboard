@@ -6,6 +6,7 @@ import Image from "next/image";
 import iconDown from "@/public/images/icon-chevron-down.svg";
 import iconUp from "@/public/images/icon-chevron-up.svg";
 import ellipsis from "@/public/images/icon-vertical-ellipsis.svg";
+import HeaderDropdown from "./HeaderDropdown";
 
 function Header() {
 	const [openDropdown, setOpenDropdown] = useState(false);
@@ -25,7 +26,7 @@ function Header() {
 						<Image
 							src={openDropdown ? iconUp : iconDown}
 							alt="dropdown icon"
-							className="w-2 ml-3 cursor-pointer md:hidden"
+							className="w-2 h-1 ml-3 mt-2 cursor-pointer md:hidden"
 							onClick={() => setOpenDropdown((state) => !state)}
 						/>
 					</div>
@@ -33,11 +34,17 @@ function Header() {
 
 				{/* Right side */}
 				<div className="flex space-x-4 items-center md:space-x-6">
-					<button className="button">+ Add New Task</button>
+					<button className="hidden md:block button">+ Add New Task</button>
 					<button className="button py-1 px-3 md:hidden">+</button>
-					<Image src={ellipsis} alt="ellipsis" className="cursor-pointer h-6" />
+					<Image
+						src={ellipsis}
+						alt="ellipsis"
+						className="cursor-pointer h-6 w-1"
+					/>
 				</div>
 			</header>
+
+			{openDropdown && <HeaderDropdown setOpenDropdown={setOpenDropdown} />}
 		</div>
 	);
 }
