@@ -1,15 +1,14 @@
-import Center from "@/src/components/Center";
-import Header from "@/src/components/Header";
+"use client";
+
+import Main from "@/src/main";
+import { Provider } from "react-redux";
+import store from "../src/redux/store";
 
 function Home() {
 	return (
-		<div>
-			{/* Header Section */}
-			<Header />
-
-			{/* Center Section */}
-			<Center />
-		</div>
+		<Provider store={store}>
+			<Main />
+		</Provider>
 	);
 }
 export default Home;
