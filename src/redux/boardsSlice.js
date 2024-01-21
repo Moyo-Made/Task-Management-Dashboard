@@ -7,4 +7,4 @@ const boardsSlice = createSlice({
 	reducers: {},
 });
 
-export default boardsSlice;
+export const { reducer: boardsReducer } = boardsSlice;
